@@ -1,51 +1,5 @@
 # 🌿 EcoTrack v3.0 — Intelligent Carbon Footprint Tracker
 
-## 🚀 Quick Start (Local)
-```bash
-pip install -r requirements.txt
-streamlit run app.py
-```
-
-## ☁️ Deploy to Streamlit Cloud (Free)
-
-### Step 1 — Push to GitHub
-```bash
-git init && git add app.py requirements.txt README.md
-git commit -m "EcoTrack v3.0 — AI-powered carbon tracker"
-git remote add origin https://github.com/YOUR_USERNAME/ecotrack.git
-git push -u origin main
-```
-
-### Step 2 — Deploy
-1. Go to **[share.streamlit.io](https://share.streamlit.io)** → Sign in with GitHub
-2. Click **New app** → Select your repo → Main file: `app.py`
-3. Click **Deploy!** — live in ~2 minutes
-
-### Step 3 — Add API Keys (Optional but Recommended)
-After deploying, users add keys in-app via **⚙️ Settings**:
-- **Gemini API** (free): [aistudio.google.com/app/apikey](https://aistudio.google.com/app/apikey)
-- **OpenAI API**: [platform.openai.com/api-keys](https://platform.openai.com/api-keys)
-- **NewsAPI** (free 100 req/day): [newsapi.org/register](https://newsapi.org/register)
-
-> **Note:** API keys are stored in the SQLite DB (per user). For production, consider encrypting them or using Streamlit Secrets.
-
-### SQLite Persistence on Streamlit Cloud
-Streamlit Cloud's filesystem is **ephemeral** — the DB resets on redeploy.
-For persistent data, migrate to a cloud DB:
-
-```python
-# Option 1: Supabase (free Postgres)
-import psycopg2
-conn = psycopg2.connect(st.secrets["SUPABASE_URL"])
-
-# Option 2: Use st.connection
-conn = st.connection("mydb", type="sql")
-```
-
----
-
-## ✨ Features in v3.0
-
 | Feature | Details |
 |---|---|
 | 🌍 **Region-Aware Calc** | India, USA, UK, Germany, Australia + Global Average |
@@ -114,4 +68,3 @@ Only 3 packages needed (all standard):
 - `plotly` — interactive charts
 - `pandas` — data processing
 
-All other features use Python stdlib (`sqlite3`, `urllib`, `json`, `xml.etree`).
